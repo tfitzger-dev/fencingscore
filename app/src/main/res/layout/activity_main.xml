@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_grey"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context="com.tfitzapps.fencingscore.MainActivity"
+    tools:deviceIds="wear">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/red"
+            android:gravity="right|center"
+            android:onClick="increaseScore"
+            android:paddingRight="15dp"
+            android:text="15" />
+
+        <Button
+            android:id="@+id/btnRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btnDouble"
+            android:layout_alignBottom="@+id/btnDouble"
+            android:layout_alignParentEnd="true"
+            android:gravity="left|center_vertical"
+            android:onClick="increaseScore"
+            android:backgroundTint="@color/green"
+            android:paddingLeft="15dp"
+            android:text="15" />
+
+        <Button
+            android:id="@+id/btnDouble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btnLeft"
+            android:layout_alignBottom="@+id/btnLeft"
+            android:layout_toEndOf="@+id/btnLeft"
+            android:layout_toStartOf="@+id/btnRight"
+            android:onClick="increaseScore"
+            android:text="D" />
+
+        <RadioButton
+            android:id="@+id/cardLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnLeft"
+            android:layout_alignParentStart="true"
+            android:buttonTint="@color/yellow"
+            android:onClick="applyCard" />
+
+        <RadioButton
+            android:id="@+id/cardRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnRight"
+            android:layout_alignParentEnd="true"
+            android:buttonTint="@color/yellow"
+            android:onClick="applyCard" />
+
+        <TextView
+            android:id="@+id/timerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnMinSwap"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:longClickable="true"
+            android:onClick="toggleTimer"
+            android:text="03:00"
+            android:textAlignment="center"
+            android:textSize="56sp" />
+
+        <Button
+            android:id="@+id/btnMinSwap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnLeft"
+            android:layout_toEndOf="@+id/cardLeft"
+            android:layout_toStartOf="@+id/btnDouble"
+            android:onClick="minSwap"
+            android:text="1M"
+            android:textSize="12sp" />
+
+        <ImageButton
+            android:id="@+id/btnPlayPause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnRight"
+            android:layout_alignTop="@+id/btnMinSwap"
+            android:layout_toStartOf="@+id/cardRight"
+            android:onClick="toggleTimer"
+            android:src="@android:drawable/ic_media_play" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnLeft"
+            android:layout_toEndOf="@+id/btnLeft"
+            android:layout_toStartOf="@+id/btnRight"
+            android:onClick="reset"
+            android:text="↻" />
+
+    </RelativeLayout>
+</android.support.wear.widget.BoxInsetLayout>
+

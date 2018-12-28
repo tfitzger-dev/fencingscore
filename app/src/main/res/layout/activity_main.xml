@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
     android:padding="@dimen/box_inset_layout_padding"
+    android:keepScreenOn="true"
     tools:context="com.tfitzapps.fencingscore.MainActivity"
     tools:deviceIds="wear">
 
@@ -61,13 +62,31 @@
             android:onClick="applyCard" />
 
         <RadioButton
-            android:id="@+id/cardRight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/btnRight"
-            android:layout_alignParentEnd="true"
-            android:buttonTint="@color/yellow"
-            android:onClick="applyCard" />
+                android:id="@+id/cardRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btnRight"
+                android:layout_alignParentEnd="true"
+                android:buttonTint="@color/yellow"
+                android:onClick="applyCard" />
+
+        <RadioButton
+                android:id="@+id/priorityRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/blue"
+                android:onClick="determinePriority"
+                android:layout_above="@+id/cardRight"
+                android:layout_alignParentEnd="true"/>
+
+        <RadioButton
+                android:id="@+id/priorityLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/blue"
+                android:onClick="determinePriority"
+                android:layout_above="@+id/cardLeft"
+                android:layout_alignParentStart="true"/>
 
         <TextView
             android:id="@+id/timerText"

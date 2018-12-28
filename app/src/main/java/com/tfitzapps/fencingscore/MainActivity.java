@@ -1,6 +1,7 @@
 package com.tfitzapps.fencingscore;
 
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.wearable.activity.WearableActivity;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ public class MainActivity extends WearableActivity {
     private FencingTimer timer;
 
     private int timerMins;
+    private Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class MainActivity extends WearableActivity {
         btnPlayPause = findViewById(R.id.btnPlayPause);
         timerText = findViewById(R.id.timerText);
 
+        vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+
         initialize();
         // Enables Always-on
         setAmbientEnabled();
@@ -35,7 +39,7 @@ public class MainActivity extends WearableActivity {
 
     private void initialize(){
         timerMins = 3;
-        timer = new FencingTimer(timerMins * 60 * 1000, timerText);
+        timer = new FencingTimer(timerMins * 60 * 1000, timerText, vibrator);
         left = new Fencer();
         right = new Fencer();
 
@@ -99,10 +103,13 @@ public class MainActivity extends WearableActivity {
     public void minSwap(View view){
         btnMinSwap.setText(timerMins + "M");
         timerMins = (timerMins == 1) ? 3 : 1;
-        timer = new FencingTimer(timerMins * 60 * 1000, timerText);
+        timer = new FencingTimer(timerMins * 60 * 1000, timerText, vibrator);
     }
 
     public void reset(View view) {
         initialize();
+    }
+
+    public void determinePriority(View view) {
     }
 }
